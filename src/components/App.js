@@ -1,11 +1,17 @@
+import React, { Component } from "react";
 import "./App.css";
 
-function App() {
-    return (
-        <div className="App">
-            <h1>Hi</h1>
-        </div>
-    );
-}
+import Header from "./head/header";
 
-export default App;
+export default class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <div className="App">
+                <Header appName="CV-Application" />
+            </div>
+        );
+    }
+}

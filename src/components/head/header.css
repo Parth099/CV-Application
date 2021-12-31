@@ -1,0 +1,10 @@
+.header-bg {
+    background-color: #04386d;
+    padding: 10px;
+    color: white;
+}
+.header-text {
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+}

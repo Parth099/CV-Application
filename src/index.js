@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import "./reset.css";
+import "./css/index.css";
+import "./css/reset.css";
 import App from "./components/App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const root = document.getElementById("root");
+ReactDOM.render(<App />, root);

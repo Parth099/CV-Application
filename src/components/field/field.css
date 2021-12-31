@@ -1,0 +1,17 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.input-label {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.input-field {
+    border: none;
+    border-radius: 3px;
+    padding: 6px 10px;
+}
+.input-field:focus {
+    outline: 1px black solid;
+}

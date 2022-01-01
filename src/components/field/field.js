@@ -15,10 +15,7 @@ export default class Field extends Component {
     render() {
         return (
             <div className="input-container">
-                <label className="input-label" htmlFor="{this.id}">
-                    {this.props.label}
-                </label>
-                <input className="input-field" id={this.id} onChange={this.handleChange} />
+                <input className="input-field" id={this.id} onChange={this.handleChange} placeholder={this.props.label} />
             </div>
         );
     }

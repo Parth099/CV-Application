@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-
 import Header from "./head/header";
 import PersonalData from "./personal-info/personalData";
+import EducationItem from "./education/educationItem";
+import Education from "./education/education";
 
 export default class App extends Component {
     constructor(props) {
@@ -16,8 +17,10 @@ export default class App extends Component {
                 Email: "",
                 Address: "",
             },
+            education: [],
         };
         this.setParentStatePD = this._setParentStatePD.bind(this);
+        this.setParentStateEdu = this._setParentStateEdu.bind(this);
     }
 
     _selfPrint() {
@@ -26,12 +29,16 @@ export default class App extends Component {
     _setParentStatePD(state) {
         this.setState({ personalData: state });
     }
+    _setParentStateEdu(state) {
+        this.setState({ education: state });
+    }
     render() {
         return (
             <div className="App">
                 <Header appName="CV-Application" />
                 <div className="flex-col-left">
-                    <PersonalData personalData={this.state.personalData} setParentState={this.setParentStatePD} />
+                    <PersonalData setParentState={this.setParentStatePD} personalData={this.state.personalData} />
+                    <Education setParentState={this.setParentStateEdu} />
                 </div>
             </div>
         );

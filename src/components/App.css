@@ -1,7 +1,9 @@
 .group-title {
     font-size: 1.1rem;
 }
-.flex-col-left{
-    width: 800px;
+.flex-col-left {
+    max-width: 600px;
     margin: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 10px;
 }

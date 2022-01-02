@@ -7,3 +7,27 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     padding: 10px;
 }
+.btn {
+    border: none;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+.add:hover {
+    background-color: #28a745;
+    color: white;
+}
+.del:hover {
+    background-color: #dd3b4a;
+    color: white;
+}

@@ -1,4 +1,3 @@
-import "./education.css";
 import React, { Component } from "react";
 
 import uniqid from "uniqid";

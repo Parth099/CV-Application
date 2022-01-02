@@ -4,6 +4,8 @@ import Header from "./head/header";
 import PersonalData from "./personal-info/personalData";
 import EducationItem from "./education/educationItem";
 import Education from "./education/education";
+import ExperienceItem from "./exp/experienceItem";
+import Experience from "./exp/experience";
 
 export default class App extends Component {
     constructor(props) {
@@ -18,9 +20,11 @@ export default class App extends Component {
                 Address: "",
             },
             education: [],
+            experience: [],
         };
         this.setParentStatePD = this._setParentStatePD.bind(this);
         this.setParentStateEdu = this._setParentStateEdu.bind(this);
+        this.setParentStateExp = this._setParentStateExp.bind(this);
     }
 
     _selfPrint() {
@@ -32,6 +36,9 @@ export default class App extends Component {
     _setParentStateEdu(state) {
         this.setState({ education: state });
     }
+    _setParentStateExp(state) {
+        this.setState({ experience: state }, () => console.log(this.state));
+    }
     render() {
         return (
             <div className="App">
@@ -39,6 +46,7 @@ export default class App extends Component {
                 <div className="flex-col-left">
                     <PersonalData setParentState={this.setParentStatePD} personalData={this.state.personalData} />
                     <Education setParentState={this.setParentStateEdu} />
+                    <Experience setParentState={this.setParentStateExp} />
                 </div>
             </div>
         );

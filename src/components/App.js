@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
+
+//compoments
 import Header from "./head/header";
 import PersonalData from "./personal-info/personalData";
-import EducationItem from "./education/educationItem";
 import Education from "./education/education";
-import ExperienceItem from "./exp/experienceItem";
 import Experience from "./exp/experience";
+import Project from "./projects/project";
 
 export default class App extends Component {
     constructor(props) {
@@ -21,10 +22,12 @@ export default class App extends Component {
             },
             education: [],
             experience: [],
+            project: [],
         };
         this.setParentStatePD = this._setParentStatePD.bind(this);
         this.setParentStateEdu = this._setParentStateEdu.bind(this);
         this.setParentStateExp = this._setParentStateExp.bind(this);
+        this.setParentStateProj = this._setParentStateProj.bind(this);
     }
 
     _selfPrint() {
@@ -37,7 +40,12 @@ export default class App extends Component {
         this.setState({ education: state });
     }
     _setParentStateExp(state) {
-        this.setState({ experience: state }, () => console.log(this.state));
+        this.setState({ experience: state });
+    }
+    _setParentStateProj(state) {
+        this.setState({ project: state }, () => {
+            console.log(this.state);
+        });
     }
     render() {
         return (
@@ -47,6 +55,7 @@ export default class App extends Component {
                     <PersonalData setParentState={this.setParentStatePD} personalData={this.state.personalData} />
                     <Education setParentState={this.setParentStateEdu} />
                     <Experience setParentState={this.setParentStateExp} />
+                    <Project setParentState={this.setParentStateProj} />
                 </div>
             </div>
         );

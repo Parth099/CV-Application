@@ -7,12 +7,14 @@ import PersonalData from "./personal-info/personalData";
 import Education from "./education/education";
 import Experience from "./exp/experience";
 import Project from "./projects/project";
+import MultiField from "./multiField/multiField";
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.selfPrint = this._selfPrint.bind(this);
         this.state = {
+            //fixed prototype
             personalData: {
                 "First Name": "",
                 "Last Name": "",
@@ -23,11 +25,13 @@ export default class App extends Component {
             education: [],
             experience: [],
             project: [],
+            skills: [],
         };
         this.setParentStatePD = this._setParentStatePD.bind(this);
         this.setParentStateEdu = this._setParentStateEdu.bind(this);
         this.setParentStateExp = this._setParentStateExp.bind(this);
         this.setParentStateProj = this._setParentStateProj.bind(this);
+        this.setParentStateSkills = this._setParentStateSkills.bind(this);
     }
 
     _selfPrint() {
@@ -43,7 +47,10 @@ export default class App extends Component {
         this.setState({ experience: state });
     }
     _setParentStateProj(state) {
-        this.setState({ project: state }, () => {
+        this.setState({ project: state });
+    }
+    _setParentStateSkills(state) {
+        this.setState({ skills: state }, () => {
             console.log(this.state);
         });
     }
@@ -56,6 +63,7 @@ export default class App extends Component {
                     <Education setParentState={this.setParentStateEdu} />
                     <Experience setParentState={this.setParentStateExp} />
                     <Project setParentState={this.setParentStateProj} />
+                    <MultiField setParentState={this.setParentStateSkills} subject="Skill" />
                 </div>
             </div>
         );

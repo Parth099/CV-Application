@@ -12,7 +12,10 @@ export default class PersonalData extends Component {
         this.handleLName = this._handleLName.bind(this);
         this.handleTitle = this._handleTitle.bind(this);
         this.handleEmail = this._handleEmail.bind(this);
-        this.handleAddress = this._handleAddress.bind(this);
+        this.handlePhoneNum = this._handlePhoneNum.bind(this);
+        this.handleZip = this._handleZip.bind(this);
+        this.handleCityState = this._handleCityState.bind(this);
+
         this.updateParentState = this._updateParentState.bind(this);
     }
 
@@ -32,8 +35,14 @@ export default class PersonalData extends Component {
     _handleEmail(val) {
         this.setState({ Email: val }, this.updateParentState);
     }
-    _handleAddress(val) {
-        this.setState({ Address: val }, this.updateParentState);
+    _handlePhoneNum(val) {
+        this.setState({ phoneNum: val }, this.updateParentState);
+    }
+    _handleZip(val) {
+        this.setState({ zip: val }, this.updateParentState);
+    }
+    _handleCityState(val) {
+        this.setState({ cityState: val }, this.updateParentState);
     }
 
     render() {
@@ -44,7 +53,8 @@ export default class PersonalData extends Component {
                 <Field id="lname" label="Last Name" changeHandler={this.handleLName} />
                 <Field id="title" label="Title" changeHandler={this.handleTitle} />
                 <Field id="email" label="Email" changeHandler={this.handleEmail} />
-                <Field id="address" label="Address" changeHandler={this.handleAddress} />
+                <Field id="phoneNum" label="Phone Number" changeHandler={this.handlePhoneNum} />
+                <Field id="cityState" label="City, State" changeHandler={this.handleCityState} />
             </div>
         );
     }

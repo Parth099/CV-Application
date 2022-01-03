@@ -12,6 +12,7 @@ export default class EducationItem extends Component {
             "Date From": "",
             "Date To": "",
             details: [],
+            GPA: "",
             uuid: props.uuid,
         };
 
@@ -21,6 +22,7 @@ export default class EducationItem extends Component {
         this.handleDateFrom = this._handleDateFrom.bind(this);
         this.handleDateTo = this._handleDateTo.bind(this);
         this.handleDetails = this._handleDetails.bind(this);
+        this.handleGPA = this._handleGPA.bind(this);
 
         this.delHandler = this._delHandler.bind(this);
         this.sendUpdate = this._sendUpdate.bind(this);
@@ -50,6 +52,9 @@ export default class EducationItem extends Component {
     _handleDateTo(val) {
         this.setState({ "Date To": val }, this.sendUpdate);
     }
+    _handleGPA(val) {
+        this.setState({ GPA: val }, this.sendUpdate);
+    }
 
     _delHandler() {
         const { delFunc, uuid } = this.props;
@@ -61,6 +66,7 @@ export default class EducationItem extends Component {
                 <Field id="" label="Institute Name" changeHandler={this.handleInsName} />
                 <Field id="" label="Location" changeHandler={this.handleLoc} />
                 <Field id="" label="Degree" changeHandler={this.handleDegree} />
+                <Field id="" label="GPA (optional)" changeHandler={this.handleGPA} />
                 <Field id="" label="Date From" changeHandler={this.handleDateFrom} />
                 <Field id="" label="Date To" changeHandler={this.handleDateTo} />
                 <MultiField subject="Education Detail" setParentState={this.handleDetails} />

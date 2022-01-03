@@ -8,6 +8,7 @@ import Education from "./education/education";
 import Experience from "./exp/experience";
 import Project from "./projects/project";
 import MultiField from "./multiField/multiField";
+import Resume from "./resumeOUT/resume";
 
 export default class App extends Component {
     constructor(props) {
@@ -20,7 +21,9 @@ export default class App extends Component {
                 "Last Name": "",
                 Title: "",
                 Email: "",
-                Address: "",
+                phoneNum: "",
+                zip: "",
+                cityState: "",
             },
             education: [],
             experience: [],
@@ -54,14 +57,19 @@ export default class App extends Component {
     }
     render() {
         return (
-            <div className="App">
+            <div className="App-main">
                 <Header appName="CV-Application" sf={this.selfPrint} />
-                <div className="flex-col-left">
-                    <PersonalData setParentState={this.setParentStatePD} personalData={this.state.personalData} />
-                    <Education setParentState={this.setParentStateEdu} />
-                    <Experience setParentState={this.setParentStateExp} />
-                    <Project setParentState={this.setParentStateProj} />
-                    <MultiField setParentState={this.setParentStateSkills} subject="Skill" />
+                <div className="flex-container">
+                    <div className="flex-col-left">
+                        <PersonalData setParentState={this.setParentStatePD} personalData={this.state.personalData} />
+                        <Education setParentState={this.setParentStateEdu} />
+                        <Experience setParentState={this.setParentStateExp} />
+                        <Project setParentState={this.setParentStateProj} />
+                        <MultiField setParentState={this.setParentStateSkills} subject="Skill" />
+                    </div>
+                    <div className="flex-col-right">
+                        <Resume info={this.state} />
+                    </div>
                 </div>
             </div>
         );

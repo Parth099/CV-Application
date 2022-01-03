@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Field from "../field/field";
+import MultiField from "../multiField/multiField";
 
 export default class ProjectItem extends Component {
     constructor(props) {
@@ -21,6 +22,12 @@ export default class ProjectItem extends Component {
 
         this.delProject = this._delProject.bind(this);
         this.editProject = this._editProject.bind(this);
+
+        this.handleDetails = this._handleDetails.bind(this);
+    }
+
+    _handleDetails(state) {
+        this.setState({ projectDetails: state }, this.editProject);
     }
 
     _delProject() {
@@ -55,8 +62,9 @@ export default class ProjectItem extends Component {
                 <Field label="Technologies Used" changeHandler={this.handleTech} />
                 <Field label="Link (optional)" changeHandler={this.handleLink} />
                 <Field label="Time-Frame" changeHandler={this.handleTime} />
+                <MultiField subject="Project Bullet" setParentState={this.handleDetails} />
                 <button className="del btn" onClick={this.delProject}>
-                    Delete
+                    Delete Project
                 </button>
             </div>
         );

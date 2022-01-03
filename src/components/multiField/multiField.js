@@ -62,7 +62,7 @@ export default class MultiField extends Component {
                     ))}
                 </div>
                 <button className="add btn" onClick={this.addElement}>
-                    Add {this.props.subject}
+                    Add new {this.props.subject}
                 </button>
             </div>
         );

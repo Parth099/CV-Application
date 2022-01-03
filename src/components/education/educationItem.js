@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Field from "../field/field";
+import MultiField from "../multiField/multiField";
 
 export default class EducationItem extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ export default class EducationItem extends Component {
             Degree: "",
             "Date From": "",
             "Date To": "",
+            details: [],
             uuid: props.uuid,
         };
 
@@ -18,6 +20,7 @@ export default class EducationItem extends Component {
         this.handleDegree = this._handleDegree.bind(this);
         this.handleDateFrom = this._handleDateFrom.bind(this);
         this.handleDateTo = this._handleDateTo.bind(this);
+        this.handleDetails = this._handleDetails.bind(this);
 
         this.delHandler = this._delHandler.bind(this);
         this.sendUpdate = this._sendUpdate.bind(this);
@@ -26,6 +29,10 @@ export default class EducationItem extends Component {
     _sendUpdate() {
         const { editFunc, uuid } = this.props;
         editFunc(uuid, this.state);
+    }
+
+    _handleDetails(state) {
+        this.setState({ details: state }, this.sendUpdate);
     }
 
     _handleInsName(val) {
@@ -56,8 +63,9 @@ export default class EducationItem extends Component {
                 <Field id="" label="Degree" changeHandler={this.handleDegree} />
                 <Field id="" label="Date From" changeHandler={this.handleDateFrom} />
                 <Field id="" label="Date To" changeHandler={this.handleDateTo} />
+                <MultiField subject="Education Detail" setParentState={this.handleDetails} />
                 <button className="del btn" onClick={this.delHandler}>
-                    Delete
+                    Delete Education
                 </button>
             </div>
         );

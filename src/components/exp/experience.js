@@ -65,7 +65,7 @@ export default class Experience extends Component {
                     </div>
                 ))}
                 <button className="add btn" onClick={this.addExpItem}>
-                    Add
+                    Add Another Activity
                 </button>
             </div>
         );

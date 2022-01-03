@@ -9,7 +9,6 @@ export default class MField extends Component {
 
     _handleChange(evt) {
         const { editFunc, uuid } = this.props;
-        console.log(evt.target.value);
         editFunc(uuid, evt.target.value);
     }
     _handleDelete() {
@@ -20,7 +19,7 @@ export default class MField extends Component {
     render() {
         return (
             <div className="mField-container">
-                <input className="mField-field" placeholder={this.props.label} onChange={this.handleChange} />
+                <input className="mField-field" placeholder={this.props.label + "(optional)"} onChange={this.handleChange} />
                 <button className="del btn btn-sm" onClick={this.handleDelete}>
                     🗑️
                 </button>

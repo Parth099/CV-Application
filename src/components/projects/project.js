@@ -62,7 +62,7 @@ export default class Project extends Component {
                     </div>
                 ))}
                 <button className="add btn" onClick={this.addProject}>
-                    Add
+                    Add Another Project
                 </button>
             </div>
         );

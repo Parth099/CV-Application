@@ -50,14 +50,12 @@ export default class App extends Component {
         this.setState({ project: state });
     }
     _setParentStateSkills(state) {
-        this.setState({ skills: state }, () => {
-            console.log(this.state);
-        });
+        this.setState({ skills: state });
     }
     render() {
         return (
             <div className="App">
-                <Header appName="CV-Application" />
+                <Header appName="CV-Application" sf={this.selfPrint} />
                 <div className="flex-col-left">
                     <PersonalData setParentState={this.setParentStatePD} personalData={this.state.personalData} />
                     <Education setParentState={this.setParentStateEdu} />

@@ -65,7 +65,7 @@ export default class Education extends Component {
                     </div>
                 ))}
                 <button className="add btn" onClick={this.addEduItem}>
-                    Add
+                    Add Another Educational Experience
                 </button>
             </div>
         );

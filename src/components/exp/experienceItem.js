@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Field from "../field/field";
+import MultiField from "../multiField/multiField";
 
 export default class ExperienceItem extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ export default class ExperienceItem extends Component {
             position: "",
             "Date From": "",
             "Date To": "",
+            details: [],
             uuid: props.uuid,
         };
 
@@ -18,6 +20,7 @@ export default class ExperienceItem extends Component {
         this.handlePosition = this._handlePosition.bind(this);
         this.handleDateFrom = this._handleDateFrom.bind(this);
         this.handleDateTo = this._handleDateTo.bind(this);
+        this.handleDetails = this._handleDetails.bind(this);
 
         this.delHandler = this._delHandler.bind(this);
         this.sendUpdate = this._sendUpdate.bind(this);
@@ -26,6 +29,10 @@ export default class ExperienceItem extends Component {
     _sendUpdate() {
         const { editFunc, uuid } = this.props;
         editFunc(uuid, this.state);
+    }
+
+    _handleDetails(state) {
+        this.setState({ details: state }, this.sendUpdate);
     }
 
     _handleName(val) {
@@ -56,8 +63,9 @@ export default class ExperienceItem extends Component {
                 <Field id="" label="Location" changeHandler={this.handleLoc} />
                 <Field id="" label="Date From" changeHandler={this.handleDateFrom} />
                 <Field id="" label="Date To" changeHandler={this.handleDateTo} />
+                <MultiField subject="Activity Detail" setParentState={this.handleDetails} />
                 <button className="del btn" onClick={this.delHandler}>
-                    Delete
+                    Delete Experience
                 </button>
             </div>
         );

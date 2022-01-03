@@ -28,3 +28,20 @@
     flex-direction: column;
     font-size: 0.9rem;
 }
+.section-title {
+    margin-top: 3px;
+    font-weight: 800;
+}
+.name-loc {
+    font-weight: 600;
+}
+.loc {
+    font-weight: 400;
+}
+.ini-name {
+    display: flex;
+    justify-content: space-between;
+}
+.detail {
+    margin-left: 35px;
+}

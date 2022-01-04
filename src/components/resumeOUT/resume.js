@@ -59,6 +59,8 @@ export default class Resume extends Component {
                     <button className="btn del resume-btn" onClick={this.reset}>
                         Reset
                     </button>
+                    <button className="btn warn resume-btn">Download PDF</button>
+                    <button className="btn del resume-btn">Reset</button>
                 </div>
             </div>
         );

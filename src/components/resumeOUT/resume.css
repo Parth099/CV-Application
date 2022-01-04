@@ -59,6 +59,10 @@
 .skills {
     margin-top: 1px;
 }
-.resume-footer{
+.resume-footer {
     padding: 5px;
+}
+.resume-btn {
+    margin: 10px 5px;
+    width: max-content;
 }

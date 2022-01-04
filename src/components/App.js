@@ -85,7 +85,7 @@ export default class App extends Component {
                         <MultiField defaultValue={this.state.skills} setParentState={this.setParentStateSkills} subject="Skill" />
                     </div>
                     <div className="flex-col-right">
-                        <Resume info={this.state} />
+                        <Resume info={this.state} reset={this.LocalStorageClient.reset} download={() => {}} />
                     </div>
                 </div>
             </div>

@@ -33,11 +33,12 @@
 }
 .add:hover {
     background-color: #28a745;
-    color: white;
 }
 .del:hover {
     background-color: #dd3b4a;
-    color: white;
+}
+.warn:hover {
+    background-color: #ffc107;
 }
 .flex-col-right {
     margin: 12px;

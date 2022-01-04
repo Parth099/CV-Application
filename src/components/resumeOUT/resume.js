@@ -8,6 +8,11 @@ import TechnicalSkills from "./resumeCompoments/techSkills";
 export default class Resume extends Component {
     constructor(props) {
         super(props);
+        this.reset = this._reset.bind(this);
+    }
+    _reset() {
+        this.props.reset();
+        window.location.reload();
     }
     render() {
         const { info } = this.props;
@@ -18,7 +23,7 @@ export default class Resume extends Component {
         const { project } = info;
         return (
             <div>
-                <div className="resume-container">
+                <div className="resume-container" id="resume">
                     <div className="resume-personal-data">
                         <div className="head">
                             {`${personalData["First Name"]} ${personalData["Last Name"]}`}
@@ -47,7 +52,14 @@ export default class Resume extends Component {
                         {project.length > 0 && [...project].map((projObj) => <ProjectInstance projData={projObj} key={projObj.uuid} />)}
                     </div>
                 </div>
-                <div className="resume-footer"></div>
+                <div className="resume-footer">
+                    <button className="btn warn resume-btn" onClick={this.props.download}>
+                        Download PDF [NOT WORKING]
+                    </button>
+                    <button className="btn del resume-btn" onClick={this.reset}>
+                        Reset
+                    </button>
+                </div>
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./educationInstance.css";
+import "./resumeCompo.css";
 export default class EducationInstance extends Component {
     constructor(props) {
         super(props);
@@ -8,15 +8,15 @@ export default class EducationInstance extends Component {
     render() {
         const { eduData } = this.props;
         return (
-            <div className="edu-instance">
+            <div className="resume-instance">
                 <div className="ini-name">
-                    <div className="name-loc">
+                    <div className="bold">
                         {eduData["Institute Name"]}
-                        <span className="loc">, {eduData.Location}</span>
+                        <span className="light">, {eduData.Location}</span>
                     </div>
                     <div className="dates">{`${eduData["Date From"]} - ${eduData["Date To"]}`}</div>
                 </div>
-                <div className="degree">{eduData.Degree}</div>
+                <div className="degree squeeze">{eduData.Degree}</div>
                 {eduData.GPA && <div className="gpa">Cumulative GPA: {eduData.GPA}</div>}
                 {eduData.details &&
                     [...eduData.details].map((detail) => (

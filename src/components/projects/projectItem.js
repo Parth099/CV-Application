@@ -10,7 +10,7 @@ export default class ProjectItem extends Component {
             techUsed: "",
             timeFrame: "",
             link: "",
-            projectDetails: [],
+            details: [],
             uuid: props.uuid,
         };
 
@@ -27,7 +27,7 @@ export default class ProjectItem extends Component {
     }
 
     _handleDetails(state) {
-        this.setState({ projectDetails: state }, this.editProject);
+        this.setState({ details: state }, this.editProject);
     }
 
     _delProject() {

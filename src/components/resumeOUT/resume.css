@@ -19,7 +19,6 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    border-bottom: 1px solid black;
 }
 .flex-info-col {
     margin-left: 5px;
@@ -31,11 +30,13 @@
 .section-title {
     margin-top: 3px;
     font-weight: 800;
+    border-bottom: 1px solid black;
+    font-size: 1.12rem;
 }
-.name-loc {
+.bold {
     font-weight: 600;
 }
-.loc {
+.light {
     font-weight: 400;
 }
 .ini-name {
@@ -44,4 +45,17 @@
 }
 .detail {
     margin-left: 35px;
+}
+.resume-instance {
+    display: flex;
+    flex-direction: column;
+}
+.squeeze {
+    line-height: 0.8;
+}
+.squeeze-low {
+    line-height: 1;
+}
+.skills {
+    margin-top: 1px;
 }

@@ -1,12 +1,16 @@
 .flex-container {
     display: flex;
     flex-direction: row;
+    margin: 0px auto;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .group-title {
     font-size: 1.1rem;
 }
 .flex-col-left {
     width: 600px;
+    min-width: 300px;
     margin: 12px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     padding: 10px;
@@ -37,10 +41,9 @@
 }
 .flex-col-right {
     margin: 12px;
-    width: min-content;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     height: min-content;
 }
-.container{
+.container {
     margin: 5px 0px;
 }

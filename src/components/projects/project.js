@@ -26,7 +26,7 @@ export default class Project extends Component {
             techUsed: "",
             timeFrame: "",
             link: "",
-            projectDetails: [],
+            details: [],
             uuid: uniqid(),
         };
     }

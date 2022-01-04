@@ -59,3 +59,7 @@
 .skills {
     margin-top: 1px;
 }
+.resume-btn {
+    margin: 10px 5px;
+    width: max-content;
+}

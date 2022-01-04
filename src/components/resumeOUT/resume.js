@@ -47,7 +47,10 @@ export default class Resume extends Component {
                         {project.length > 0 && [...project].map((projObj) => <ProjectInstance projData={projObj} key={projObj.uuid} />)}
                     </div>
                 </div>
-                <div className="resume-footer"></div>
+                <div className="resume-footer">
+                    <button className="btn warn resume-btn">Download PDF</button>
+                    <button className="btn del resume-btn">Reset</button>
+                </div>
             </div>
         );
     }

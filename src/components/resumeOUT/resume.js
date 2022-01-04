@@ -53,14 +53,14 @@ export default class Resume extends Component {
                     </div>
                 </div>
                 <div className="resume-footer">
-                    <button className="btn warn resume-btn" onClick={this.props.download}>
-                        Download PDF [NOT WORKING]
-                    </button>
+                    {false && (
+                        <button className="btn warn resume-btn" onClick={this.props.download}>
+                            Download PDF [NOT WORKING]
+                        </button>
+                    )}
                     <button className="btn del resume-btn" onClick={this.reset}>
                         Reset
                     </button>
-                    <button className="btn warn resume-btn">Download PDF</button>
-                    <button className="btn del resume-btn">Reset</button>
                 </div>
             </div>
         );

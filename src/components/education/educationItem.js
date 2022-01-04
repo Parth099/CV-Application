@@ -5,16 +5,22 @@ import MultiField from "../multiField/multiField";
 export default class EducationItem extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            "Institute Name": "",
-            Location: "",
-            Degree: "",
-            "Date From": "",
-            "Date To": "",
-            details: [],
-            GPA: "",
-            uuid: props.uuid,
-        };
+
+        const { stateObj } = this.props;
+        if (stateObj && stateObj.uuid) {
+            this.state = stateObj;
+        } else {
+            this.state = {
+                "Institute Name": "",
+                Location: "",
+                Degree: "",
+                "Date From": "",
+                "Date To": "",
+                details: [],
+                GPA: "",
+                uuid: props.uuid,
+            };
+        }
 
         this.handleInsName = this._handleInsName.bind(this);
         this.handleLoc = this._handleLoc.bind(this);
@@ -63,13 +69,13 @@ export default class EducationItem extends Component {
     render() {
         return (
             <div className="edu-item">
-                <Field id="" label="Institute Name" changeHandler={this.handleInsName} />
-                <Field id="" label="Location" changeHandler={this.handleLoc} />
-                <Field id="" label="Degree" changeHandler={this.handleDegree} />
-                <Field id="" label="GPA (optional)" changeHandler={this.handleGPA} />
-                <Field id="" label="Date From" changeHandler={this.handleDateFrom} />
-                <Field id="" label="Date To" changeHandler={this.handleDateTo} />
-                <MultiField subject="Education Detail" setParentState={this.handleDetails} />
+                <Field id="" label="Institute Name" changeHandler={this.handleInsName} defaultValue={this.state["Institute Name"]} />
+                <Field id="" label="Location" changeHandler={this.handleLoc} defaultValue={this.state.Location} />
+                <Field id="" label="Degree" changeHandler={this.handleDegree} defaultValue={this.state.Degree} />
+                <Field id="" label="GPA (optional)" changeHandler={this.handleGPA} defaultValue={this.state.GPA} />
+                <Field id="" label="Date From" changeHandler={this.handleDateFrom} defaultValue={this.state["Date From"]} />
+                <Field id="" label="Date To" changeHandler={this.handleDateTo} defaultValue={this.state["Date To"]} />
+                <MultiField subject="Education Detail" setParentState={this.handleDetails} defaultValue={this.state.details} />
                 <button className="del btn" onClick={this.delHandler}>
                     Delete Education
                 </button>

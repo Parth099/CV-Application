@@ -5,15 +5,20 @@ import MultiField from "../multiField/multiField";
 export default class ExperienceItem extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            name: "",
-            location: "",
-            position: "",
-            "Date From": "",
-            "Date To": "",
-            details: [],
-            uuid: props.uuid,
-        };
+        const { stateObj } = this.props;
+        if (stateObj && stateObj.uuid) {
+            this.state = stateObj;
+        } else {
+            this.state = {
+                name: "",
+                location: "",
+                position: "",
+                "Date From": "",
+                "Date To": "",
+                details: [],
+                uuid: props.uuid,
+            };
+        }
 
         this.handleName = this._handleName.bind(this);
         this.handleLoc = this._handleLoc.bind(this);
@@ -58,12 +63,12 @@ export default class ExperienceItem extends Component {
     render() {
         return (
             <div className="edu-item">
-                <Field id="" label="Employment/Activity Name" changeHandler={this.handleName} />
-                <Field id="" label="Position" changeHandler={this.handlePosition} />
-                <Field id="" label="Location" changeHandler={this.handleLoc} />
-                <Field id="" label="Date From" changeHandler={this.handleDateFrom} />
-                <Field id="" label="Date To" changeHandler={this.handleDateTo} />
-                <MultiField subject="Activity Detail" setParentState={this.handleDetails} />
+                <Field id="" label="Employment/Activity Name" changeHandler={this.handleName} defaultValue={this.state.name} />
+                <Field id="" label="Position" changeHandler={this.handlePosition} defaultValue={this.state.position} />
+                <Field id="" label="Location" changeHandler={this.handleLoc} defaultValue={this.state.location} />
+                <Field id="" label="Date From" changeHandler={this.handleDateFrom} defaultValue={this.state["Date From"]} />
+                <Field id="" label="Date To" changeHandler={this.handleDateTo} defaultValue={this.state["Date To"]} />
+                <MultiField subject="Activity Detail" setParentState={this.handleDetails} defaultValue={this.state.details} />
                 <button className="del btn" onClick={this.delHandler}>
                     Delete Experience
                 </button>

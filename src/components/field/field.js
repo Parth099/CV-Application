@@ -15,7 +15,13 @@ export default class Field extends Component {
     render() {
         return (
             <div className="input-container">
-                <input className="input-field" id={this.id} onChange={this.handleChange} placeholder={this.props.label} />
+                <input
+                    className="input-field"
+                    id={this.id}
+                    onChange={this.handleChange}
+                    placeholder={this.props.label}
+                    defaultValue={this.props.defaultValue || ""}
+                />
             </div>
         );
     }

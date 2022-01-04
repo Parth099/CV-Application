@@ -20,7 +20,7 @@ export default class EducationInstance extends Component {
                 {eduData.GPA && <div className="gpa">Cumulative GPA: {eduData.GPA}</div>}
                 {eduData.details &&
                     [...eduData.details].map((detail) => (
-                        <li className="detail" key={detail.uuid}>
+                        <li className="detail squeeze-low" key={detail.uuid}>
                             {detail.val}
                         </li>
                     ))}

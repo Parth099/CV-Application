@@ -9,10 +9,16 @@ export default class MultiField extends Component {
         super(props);
 
         this.getDefaultObj = this._getDefaultObj.bind(this);
-        this.state = {
-            arr: [this.getDefaultObj()], //goal of a multiField is to keep a array[Obj] in state
-        };
-
+        const { defaultValue } = this.props;
+        if (defaultValue && defaultValue.length > 0) {
+            this.state = {
+                arr: defaultValue,
+            };
+        } else {
+            this.state = {
+                arr: [this.getDefaultObj()], //goal of a multiField is to keep a array[Obj] in state
+            };
+        }
         this.addElement = this._addElement.bind(this);
         this.delElement = this._delElement.bind(this);
         this.editElement = this._editElement.bind(this); //sync to state
@@ -58,6 +64,7 @@ export default class MultiField extends Component {
                             delFunc={this.delElement}
                             title={this.props.subject}
                             key={mField.uuid}
+                            defaultValue={mField.val}
                         />
                     ))}
                 </div>

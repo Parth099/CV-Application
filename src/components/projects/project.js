@@ -7,9 +7,15 @@ export default class Project extends Component {
         super(props);
 
         this.getDefaultObj = this._getDefaultObj.bind(this);
-        this.state = {
-            project: [this.getDefaultObj()],
-        };
+
+        const { save } = this.props;
+        if (save && save.length > 0) {
+            this.state = { project: save };
+        } else {
+            this.state = {
+                project: [this.getDefaultObj()],
+            };
+        }
         this.delProject = this._delProject.bind(this);
         this.editProject = this._editProject.bind(this);
         this.addProject = this._addProject.bind(this);
@@ -58,7 +64,7 @@ export default class Project extends Component {
                 <h1 className="group-title">Projects</h1>
                 {[...this.state.project].map((proj) => (
                     <div className="project-element" key={proj.uuid}>
-                        <ProjectItem uuid={proj.uuid} delFunc={this.delProject} editFunc={this.editProject} />
+                        <ProjectItem uuid={proj.uuid} delFunc={this.delProject} editFunc={this.editProject} stateObj={proj}/>
                     </div>
                 ))}
                 <button className="add btn" onClick={this.addProject}>

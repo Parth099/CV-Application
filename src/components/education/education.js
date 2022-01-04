@@ -9,9 +9,16 @@ export default class Education extends Component {
 
         this.getNewObject = this._getNewObject.bind(this);
 
-        this.state = {
-            education: [this.getNewObject()],
-        };
+        const { save } = this.props;
+        if (save && save.length > 0) {
+            this.state = {
+                education: save,
+            };
+        } else {
+            this.state = {
+                education: [this.getNewObject()],
+            };
+        }
         this.delEduItem = this._delEduItem.bind(this);
         this.editEduItem = this._editEduItem.bind(this);
         this.addEduItem = this._addEduItem.bind(this);
@@ -61,7 +68,7 @@ export default class Education extends Component {
                 <h1 className="group-title">Education</h1>
                 {[...this.state.education].map((edu) => (
                     <div className="edu-element" key={edu.uuid}>
-                        <EducationItem uuid={edu.uuid} delFunc={this.delEduItem} editFunc={this.editEduItem} />
+                        <EducationItem uuid={edu.uuid} delFunc={this.delEduItem} editFunc={this.editEduItem} stateObj={edu} />
                     </div>
                 ))}
                 <button className="add btn" onClick={this.addEduItem}>

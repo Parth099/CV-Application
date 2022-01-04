@@ -5,14 +5,20 @@ import MultiField from "../multiField/multiField";
 export default class ProjectItem extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            name: "",
-            techUsed: "",
-            timeFrame: "",
-            link: "",
-            details: [],
-            uuid: props.uuid,
-        };
+
+        const { stateObj } = this.props;
+        if (stateObj && stateObj.uuid) {
+            this.state = stateObj;
+        } else {
+            this.state = {
+                name: "",
+                techUsed: "",
+                timeFrame: "",
+                link: "",
+                details: [],
+                uuid: props.uuid,
+            };
+        }
 
         this.handleName = this._handleName.bind(this);
         this.handleTech = this._handleTech.bind(this);
@@ -58,11 +64,11 @@ export default class ProjectItem extends Component {
     render() {
         return (
             <div className="projects">
-                <Field label="Project Name" changeHandler={this.handleName} />
-                <Field label="Technologies Used" changeHandler={this.handleTech} />
-                <Field label="Link (optional)" changeHandler={this.handleLink} />
-                <Field label="Time-Frame" changeHandler={this.handleTime} />
-                <MultiField subject="Project Bullet" setParentState={this.handleDetails} />
+                <Field label="Project Name" changeHandler={this.handleName} defaultValue={this.state.name} />
+                <Field label="Technologies Used" changeHandler={this.handleTech} defaultValue={this.state.techUsed} />
+                <Field label="Link (optional)" changeHandler={this.handleLink} defaultValue={this.state.link} />
+                <Field label="Time-Frame" changeHandler={this.handleTime} defaultValue={this.state.timeFrame} />
+                <MultiField subject="Project Bullet" setParentState={this.handleDetails} defaultValue={this.state.details} />
                 <button className="del btn" onClick={this.delProject}>
                     Delete Project
                 </button>

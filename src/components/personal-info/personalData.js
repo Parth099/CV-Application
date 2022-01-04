@@ -49,12 +49,12 @@ export default class PersonalData extends Component {
         return (
             <div className="pd-container">
                 <h1 className="group-title">Personal Information</h1>
-                <Field id="fname" label="First Name" changeHandler={this.handleFName} />
-                <Field id="lname" label="Last Name" changeHandler={this.handleLName} />
-                <Field id="title" label="Title" changeHandler={this.handleTitle} />
-                <Field id="email" label="Email" changeHandler={this.handleEmail} />
-                <Field id="phoneNum" label="Phone Number" changeHandler={this.handlePhoneNum} />
-                <Field id="cityState" label="City, State" changeHandler={this.handleCityState} />
+                <Field id="fname" label="First Name" changeHandler={this.handleFName} defaultValue={this.state["First Name"]} />
+                <Field id="lname" label="Last Name" changeHandler={this.handleLName} defaultValue={this.state["Last Name"]} />
+                <Field id="title" label="Title" changeHandler={this.handleTitle} defaultValue={this.state.Title} />
+                <Field id="email" label="Email" changeHandler={this.handleEmail} defaultValue={this.state.Email} />
+                <Field id="phoneNum" label="Phone Number" changeHandler={this.handlePhoneNum} defaultValue={this.state.phoneNum} />
+                <Field id="cityState" label="City, State" changeHandler={this.handleCityState} defaultValue={this.state.cityState} />
             </div>
         );
     }

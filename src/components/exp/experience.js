@@ -8,10 +8,16 @@ export default class Experience extends Component {
         super(props);
 
         this.getNewObject = this._getNewObject.bind(this);
-
-        this.state = {
-            experience: [this.getNewObject()],
-        };
+        const { save } = this.props;
+        if (save && save.length > 0) {
+            this.state = {
+                experience: save,
+            };
+        } else {
+            this.state = {
+                experience: [this.getNewObject()],
+            };
+        }
         this.delExpItem = this._delExpItem.bind(this);
         this.editExpItem = this._editExpItem.bind(this);
         this.addExpItem = this._addExpItem.bind(this);
@@ -61,7 +67,7 @@ export default class Experience extends Component {
                 <h1 className="group-title">Experience</h1>
                 {[...this.state.experience].map((exp) => (
                     <div className="exp-element" key={exp.uuid}>
-                        <ExperienceItem uuid={exp.uuid} delFunc={this.delExpItem} editFunc={this.editExpItem} />
+                        <ExperienceItem uuid={exp.uuid} delFunc={this.delExpItem} editFunc={this.editExpItem} stateObj={exp} />
                     </div>
                 ))}
                 <button className="add btn" onClick={this.addExpItem}>

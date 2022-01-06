@@ -1,34 +1,22 @@
-import React, { Component } from "react";
-
-export default class MField extends Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this._handleChange.bind(this);
-        this.handleDelete = this._handleDelete.bind(this);
-    }
-
-    _handleChange(evt) {
-        const { editFunc, uuid } = this.props;
-        editFunc(uuid, evt.target.value);
-    }
-    _handleDelete() {
-        const { delFunc, uuid } = this.props;
+//mField has no state and thus no imports
+const MField = (props) => {
+    const handleChange = (event) => {
+        const { editFunc, uuid } = props;
+        editFunc(uuid, event.target.value);
+    };
+    const handleDelete = () => {
+        const { delFunc, uuid } = props;
         delFunc(uuid);
-    }
+    };
 
-    render() {
-        return (
-            <div className="mField-container">
-                <input
-                    className="mField-field"
-                    placeholder={this.props.label + "(optional)"}
-                    onChange={this.handleChange}
-                    defaultValue={this.props.defaultValue}
-                />
-                <button className="del btn btn-sm" onClick={this.handleDelete}>
-                    🗑️
-                </button>
-            </div>
-        );
-    }
-}
+    return (
+        <div className="mField-container">
+            <input className="mField-field" placeholder={props.label + "(optional)"} onChange={handleChange} defaultValue={props.defaultValue} />
+            <button className="del btn btn-sm" onClick={handleDelete}>
+                🗑️
+            </button>
+        </div>
+    );
+};
+
+export default MField;

@@ -45,6 +45,7 @@ const App = () => {
                     <Project setParentState={setProject} save={project} />
                     <MultiField setParentState={setskills} defaultValue={skills} subject="Skill" />
                 </div>
+                {/* needs full conversion or inc+ in params */}
                 {false && (
                     <div className="flex-col-right">
                         <Resume info={this.state} reset={this.LocalStorageClient.reset} download={() => {}} />

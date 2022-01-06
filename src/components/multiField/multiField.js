@@ -1,77 +1,69 @@
 import "./multiField.css";
-import React, { Component } from "react";
-
+import React, { useState } from "react";
 import MField from "./mField";
 import uniqid from "uniqid";
 
-export default class MultiField extends Component {
-    constructor(props) {
-        super(props);
-
-        this.getDefaultObj = this._getDefaultObj.bind(this);
-        const { defaultValue } = this.props;
-        if (defaultValue && defaultValue.length > 0) {
-            this.state = {
-                arr: defaultValue,
-            };
-        } else {
-            this.state = {
-                arr: [this.getDefaultObj()], //goal of a multiField is to keep a array[Obj] in state
-            };
-        }
-        this.addElement = this._addElement.bind(this);
-        this.delElement = this._delElement.bind(this);
-        this.editElement = this._editElement.bind(this); //sync to state
-        this.sendUpdate = this._sendUpdate.bind(this);
-    }
-
-    _sendUpdate() {
-        this.props.setParentState(this.state.arr);
-    }
-
-    _getDefaultObj() {
+//parent of data
+const MultiField = (props) => {
+    const generateDefaultObject = () => {
         return { val: "", uuid: uniqid() };
-    }
-    _addElement() {
-        const newState = [...this.state.arr, this.getDefaultObj()];
-        this.setState({ arr: newState }); //we dont need to send an update if a field is created
-    }
-    _editElement(uuid, val) {
-        const idx = this.state.arr.findIndex((ele) => ele.uuid === uuid);
-        if (idx < 0) return;
-        const newState = [...this.state.arr];
-        newState[idx].val = val;
-        this.setState({ arr: newState }, this.sendUpdate);
-    }
-    _delElement(uuid) {
-        const idx = this.state.arr.findIndex((ele) => ele.uuid === uuid);
-        if (idx < 0) return;
-        const newState = [...this.state.arr];
-        newState.splice(idx, 1);
-        this.setState({ arr: newState }, this.sendUpdate);
-    }
+    };
 
-    render() {
-        return (
-            <div className={"multi-Field " + this.props.subject}>
-                <h1 className="group-title">{this.props.subject + "s"}</h1>
-                <div className="MF-container">
-                    {[...this.state.arr].map((mField, idx) => (
-                        <MField
-                            label={`Enter ${this.props.subject} ` + (idx + 1)}
-                            uuid={mField.uuid}
-                            editFunc={this.editElement}
-                            delFunc={this.delElement}
-                            title={this.props.subject}
-                            key={mField.uuid}
-                            defaultValue={mField.val}
-                        />
-                    ))}
-                </div>
-                <button className="add btn" onClick={this.addElement}>
-                    Add new {this.props.subject}
-                </button>
+    //declare basic state
+    const [arr, setArr] = useState([generateDefaultObject()]);
+
+    /*
+        these operations are required on this 'state' arr
+        1. ADD (append) object
+        2. EDIT object based on UUID
+        3. DELETE object based on UUID
+        4. SEND update to parent
+
+    */
+
+    const addElement = () => {
+        setArr([...arr, generateDefaultObject()]);
+    };
+
+    const editElement = (id, value) => {
+        const idx = arr.findIndex((ele) => ele.uuid === id);
+        if (idx < 0) return;
+        const newArr = [...arr];
+        newArr[idx].val = value;
+        setArr(newArr);
+        props.setParentState(newArr);
+    };
+
+    const delElement = (id) => {
+        const idx = arr.findIndex((ele) => ele.uuid === id);
+        if (idx < 0) return;
+        const newArr = [...arr];
+        newArr.splice(idx, 1);
+        setArr(newArr);
+        props.setParentState(newArr);
+    };
+
+    return (
+        <div className={"multi-Field " + props.subject}>
+            <h1 className="group-title">{props.subject + "s"}</h1>
+            <div className="MF-container">
+                {[...arr].map((data, idx) => (
+                    <MField
+                        label={`Enter ${props.subject} ` + (idx + 1)}
+                        uuid={data.uuid}
+                        editFunc={editElement}
+                        delFunc={delElement}
+                        title={props.subject}
+                        key={data.uuid}
+                        defaultValue={data.val}
+                    />
+                ))}
             </div>
-        );
-    }
-}
+            <button className="add btn" onClick={addElement}>
+                Add new {props.subject}
+            </button>
+        </div>
+    );
+};
+
+export default MultiField;

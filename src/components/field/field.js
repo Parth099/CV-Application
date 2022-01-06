@@ -1,28 +1,15 @@
 import "./field.css";
-import React, { Component } from "react";
+const Field = (props) => {
+    const handleChange = (evt) => {
+        props.changeHandler(evt.target.value);
+    };
 
-export default class Field extends Component {
-    constructor(props) {
-        super(props);
-        this.id = this.props.id || "";
-        this.handleChange = this._handleChange.bind(this);
-    }
+    const id = props.id || "";
+    return (
+        <div className="input-container">
+            <input className="input-field" id={id} onChange={handleChange} placeholder={props.label} defaultValue={props.defaultValue || ""} />
+        </div>
+    );
+};
 
-    _handleChange(evt) {
-        this.props.changeHandler(evt.target.value);
-    }
-
-    render() {
-        return (
-            <div className="input-container">
-                <input
-                    className="input-field"
-                    id={this.id}
-                    onChange={this.handleChange}
-                    placeholder={this.props.label}
-                    defaultValue={this.props.defaultValue || ""}
-                />
-            </div>
-        );
-    }
-}
+export default Field;

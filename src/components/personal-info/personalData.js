@@ -20,7 +20,7 @@ export default class PersonalData extends Component {
     }
 
     _updateParentState() {
-        this.props.setParentState(this.state);
+        this.props.setParentState({ ...this.state });
     }
 
     _handleFName(val) {

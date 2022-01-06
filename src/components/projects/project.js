@@ -23,7 +23,7 @@ export default class Project extends Component {
     }
 
     _sendUpdate() {
-        this.props.setParentState(this.state.project);
+        this.props.setParentState({ project : this.state });
     }
 
     _getDefaultObj() {

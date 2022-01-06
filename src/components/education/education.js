@@ -27,7 +27,7 @@ export default class Education extends Component {
     }
 
     _updateParentState() {
-        this.props.setParentState(this.state.education);
+        this.props.setParentState({ education : this.state });
     }
 
     _delEduItem(uuid) {

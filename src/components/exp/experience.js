@@ -26,7 +26,7 @@ export default class Experience extends Component {
     }
 
     _updateParentState() {
-        this.props.setParentState(this.state.experience);
+        this.props.setParentState({ experience : this.state });
     }
 
     _delExpItem(uuid) {

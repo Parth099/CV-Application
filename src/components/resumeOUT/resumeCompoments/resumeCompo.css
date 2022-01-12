@@ -1,9 +1,0 @@
-.skills-flex {
-    display: flex;
-    width: 100%;
-}
-.tSkills-text {
-    flex-shrink: 0;
-    flex-grow: 0;
-    margin-right: 4px;
-}

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CV-Application/static/css/main.7a7bc175.css",
+    "main.js": "/CV-Application/static/js/main.56be3297.js",
+    "static/media/Nunito-Regular.ttf": "/CV-Application/static/media/Nunito-Regular.325f6b17880102deb0a8.ttf",
+    "static/media/Nunito-ExtraLight.ttf": "/CV-Application/static/media/Nunito-ExtraLight.165fc745d7ed05ceb37d.ttf",
+    "index.html": "/CV-Application/index.html",
+    "main.7a7bc175.css.map": "/CV-Application/static/css/main.7a7bc175.css.map",
+    "main.56be3297.js.map": "/CV-Application/static/js/main.56be3297.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7a7bc175.css",
+    "static/js/main.56be3297.js"
+  ]
+}

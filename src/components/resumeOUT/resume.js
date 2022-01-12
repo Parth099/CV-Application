@@ -45,7 +45,16 @@ export default class Resume extends Component {
                     </div>
                     <div className="edu-container container">
                         {education.length > 0 && <p className="section-title">Education</p>}
-                        {education.length > 0 && [...education].map((eduObj) => <EducationInstance eduData={eduObj} key={eduObj.uuid} />)}
+                        {education.length > 0 && (
+                            <div>
+                                {[...education].map((eduObj, idx) => (
+                                    <div>
+                                        <EducationInstance eduData={eduObj} key={eduObj.uuid} />
+                                        {idx != education.length - 1 && <div className="borderBtm"></div>}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                     <div className="exp-container container">
                         {experience.length > 0 && <p className="section-title">Experience</p>}

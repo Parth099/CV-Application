@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/CV-Application/static/css/main.7a7bc175.css",
-    "main.js": "/CV-Application/static/js/main.56be3297.js",
+    "main.css": "/CV-Application/static/css/main.f2e322ff.css",
+    "main.js": "/CV-Application/static/js/main.6eba3ebc.js",
     "static/media/Nunito-Regular.ttf": "/CV-Application/static/media/Nunito-Regular.325f6b17880102deb0a8.ttf",
+    "static/media/Nunito-Bold.ttf": "/CV-Application/static/media/Nunito-Bold.4553e8e307fb4dc343b7.ttf",
+    "static/media/Nunito-ExtraBold.ttf": "/CV-Application/static/media/Nunito-ExtraBold.203b93f489123ffb7763.ttf",
     "static/media/Nunito-ExtraLight.ttf": "/CV-Application/static/media/Nunito-ExtraLight.165fc745d7ed05ceb37d.ttf",
+    "static/media/black-dot.png": "/CV-Application/static/media/black-dot.df47b998bace17b969a5.png",
     "index.html": "/CV-Application/index.html",
-    "main.7a7bc175.css.map": "/CV-Application/static/css/main.7a7bc175.css.map",
-    "main.56be3297.js.map": "/CV-Application/static/js/main.56be3297.js.map"
+    "main.f2e322ff.css.map": "/CV-Application/static/css/main.f2e322ff.css.map",
+    "main.6eba3ebc.js.map": "/CV-Application/static/js/main.6eba3ebc.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a7bc175.css",
-    "static/js/main.56be3297.js"
+    "static/css/main.f2e322ff.css",
+    "static/js/main.6eba3ebc.js"
   ]
 }

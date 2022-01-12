@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import generatePDFDocument from "../pdf/pdf";
 import "./resume.css";
 import EducationInstance from "./resumeCompoments/educationInstance";
 import ExperienceInstance from "./resumeCompoments/expInstance";
@@ -9,11 +10,18 @@ export default class Resume extends Component {
     constructor(props) {
         super(props);
         this.reset = this._reset.bind(this);
+        this.download = this._download.bind(this);
     }
     _reset() {
         this.props.reset();
         window.location.reload();
     }
+
+    _download() {
+        console.log("Download");
+        generatePDFDocument(this.props.info);
+    }
+
     render() {
         const { info } = this.props;
         const { personalData } = info;
@@ -53,11 +61,10 @@ export default class Resume extends Component {
                     </div>
                 </div>
                 <div className="resume-footer">
-                    {false && (
-                        <button className="btn warn resume-btn" onClick={this.props.download}>
-                            Download PDF [NOT WORKING]
-                        </button>
-                    )}
+                    <button className="btn warn resume-btn" onClick={this.download}>
+                        Download PDF
+                    </button>
+
                     <button className="btn del resume-btn" onClick={this.reset}>
                         Reset
                     </button>

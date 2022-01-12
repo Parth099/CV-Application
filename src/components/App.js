@@ -10,6 +10,7 @@ import Project from "./projects/project";
 import MultiField from "./multiField/multiField";
 import Resume from "./resumeOUT/resume";
 import LocalStorageClient from "./localStorageClient";
+import "./pdf/pdf";
 
 export default class App extends Component {
     constructor(props) {
